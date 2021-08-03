@@ -1,4 +1,4 @@
 # first-etherum-contract
 My first project creating contracts
 
-Using solidity + openzepelling + truffle
+Using solidity + openzeppeling + truffle + ganache
