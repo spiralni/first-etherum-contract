@@ -1,21 +1,14 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.4.22 <0.9.0;
 
-import "./access-control/Auth.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
 
-contract Box {
+contract Box is Ownable {
     uint256 private _value;
-    Auth private _auth;
-
-    constructor(Auth auth) {
-        _auth = auth;
-    }
 
     event ValueChanged(uint256 value);
 
     function store(uint256 value) public {
-        require(_auth.isAdministrator(msg.sender), "Unauthorized");
-        
         _value = value;
         emit ValueChanged(value);
     }
